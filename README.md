@@ -1,9 +1,9 @@
 # test-spray-newrelic
 
-The idea of this repo is replicate some issues that I'm having in production applications and then report the issue in the NewRelic support forum.
+The idea of this repo is replicate some issues that I'm having in production applications and then report the issue in the NewRelic support forum.  
 Currently I'm using the NewRelic java agent with Scala 2.11 and [Spray](http://spray.io/) as HTTP server and client.
 
-For reporting into NewRelic a license_key is needed.
+For reporting into NewRelic a license_key is needed.  
 I define the license_key as a VM option in the run configuration:
     -Dnewrelic.environment=dev  
     -Dnewrelic.config.file=&lt;path-to-repo&gt;/test-spray-newrelic/src/main/resources/newrelic.yml  
@@ -12,14 +12,14 @@ I define the license_key as a VM option in the run configuration:
 
 Test scenarios are defined using [gatling](http://gatling.io/) in the test project files.
 
-Also, some tests need to do HTTP requests to replicate the production behavior.
+Also, some tests need to do HTTP requests to replicate the production behavior.  
 The mocks.js file defines mocks for this services using nodejs [express module](https://expressjs.com/).
 
 
 ## Wrong Metrics Issue
-The first issue that I can isolate is about the reported web transaction times.
-One of my applications is a provider proxy.
-It receives a request, invoke two data services (150 ms avg each one), transforms the input, and then do a request to the target app (5 seconds avg).
+The first issue that I can isolate is about the reported web transaction times.  
+One of my applications is a provider proxy.  
+It receives a request, invoke two data services (150 ms avg each one), transforms the input, and then do a request to the target app (5 seconds avg).  
 Then, the web transaction time in the NewRelic UI should be about 5 seconds, but it shows 250 ms instead.
 
 The test services for this issue are defined in the WrongMetricsRoutes class. This class defines 5 services:
