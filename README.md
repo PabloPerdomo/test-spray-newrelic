@@ -5,10 +5,10 @@ Currently I'm using the NewRelic java agent with Scala 2.11 and [Spray](http://s
 
 For reporting into NewRelic a license_key is needed.
 I define the license_key as a VM option in the run configuration:
-	-Dnewrelic.environment=dev
-    -Dnewrelic.config.file=<path-to-repo>/test-spray-newrelic/src/main/resources/newrelic.yml
-    -Dnewrelic.config.license_key=<license_key>
-    -javaagent:<path-to-ivy-cache>/com.newrelic.agent.java/newrelic-agent/jars/newrelic-agent-3.31.1.jar
+    -Dnewrelic.environment=dev  
+    -Dnewrelic.config.file=&lt;path-to-repo&gt;/test-spray-newrelic/src/main/resources/newrelic.yml  
+    -Dnewrelic.config.license_key=&lt;license_key&gt;  
+    -javaagent:<path-to-ivy-cache>/com.newrelic.agent.java/newrelic-agent/jars/newrelic-agent-3.31.1.jar  
 
 Test scenarios are defined using [gatling](http://gatling.io/) in the test project files.
 
@@ -28,10 +28,11 @@ The test services for this issue are defined in the WrongMetricsRoutes class. Th
 * GET /test/spray/newrelic/wrong-metrics/v3
 * GET /test/spray/newrelic/wrong-metrics/v4
 * GET /test/spray/newrelic/wrong-metrics/target-only
-The v1 is the ideal. I currently use this in production.
-The v2 is the same but using flatMap instead of for comprehension (just for test if this change something).
-The v3 is a workaround test, but it also reports wrong metrics.
-The v4 is not the same of the others because the data services are not invoked in parallel. It has the same trouble.
+
+The v1 is the ideal. I currently use this in production.  
+The v2 is the same but using flatMap instead of for comprehension (just for test if this change something).  
+The v3 is a workaround test, but it also reports wrong metrics.  
+The v4 is not the same of the others because the data services are not invoked in parallel. It has the same trouble.  
 And the target-only do not invoke any data service. Just invokes directly the target service. In this case the metrics are well reported.
 
 The UI issue can be seen in this [permalik](https://rpm.newrelic.com/accounts/1408561/applications/22459112?tw%5Bend%5D=1472394530&tw%5Bstart%5D=1472391831).
