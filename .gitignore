@@ -1,0 +1,15 @@
+.idea/
+out/
+.project
+.classpath
+.gradle
+build/
+.settings/
+target/
+*.iml
+.cache
+bin/
+*.ipr
+*.log
+**/*.DS_Store
+/.scala_dependencies

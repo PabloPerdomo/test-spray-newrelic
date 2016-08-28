@@ -1,0 +1,9 @@
+common: &default_settings
+  app_name: test-spray-newrelic[DEV]
+
+# Application Environments
+# ------------------------------------------
+
+dev:
+  <<: *default_settings
+  app_name: test-spray-newrelic[DEV]
