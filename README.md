@@ -17,7 +17,7 @@ The mocks.js file defines mocks for this services using nodejs [express module](
 
 
 ## Wrong Metrics Issue
-The first issue that I can isolate is about the reported web transaction times.  
+The first issue that I can isolate is about the [reported web transaction times](https://discuss.newrelic.com/t/wrong-web-transaction-ui-metrics-with-scala-2-11-and-spray/40500).  
 One of my applications is a provider proxy.  
 It receives a request, invoke two data services (150 ms avg each one), transforms the input, and then do a request to the target app (5 seconds avg).  
 Then, the web transaction time in the NewRelic UI should be about 5 seconds, but it shows 250 ms instead.
