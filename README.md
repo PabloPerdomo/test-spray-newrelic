@@ -30,7 +30,7 @@ The test services for this issue are defined in the WrongMetricsRoutes class. Th
 * GET /test/spray/newrelic/wrong-metrics/target-only
 The v1 is the ideal. I currently use this in production.
 The v2 is the same but using flatMap instead of for comprehension (just for test if this change something).
-The v3 is a work around intention, but it also reports wrong metrics.
+The v3 is a workaround test, but it also reports wrong metrics.
 The v4 is not the same of the others because the data services are not invoked in parallel. It has the same trouble.
 And the target-only do not invoke any data service. Just invokes directly the target service. In this case the metrics are well reported.
 
